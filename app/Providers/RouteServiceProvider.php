@@ -28,6 +28,10 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
 
         $router->model('events', Event::class);
+        $router->model('slug', Event::class);
+        $router->bind('slug',  function($value){
+            return Event::where('slug', $value)->first();
+        });
     }
 
     /**

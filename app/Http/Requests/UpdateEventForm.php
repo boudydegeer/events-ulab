@@ -32,10 +32,10 @@ class UpdateEventForm extends Request
 			'description' => 'required|min:20',
 
 			// Tickets Validation
-			'tickets.amount' => 'integer|between:0,100',
-			'tickets.price' => 'integer|between:0,1000',
-			'tickets.discount' => 'integer|between:0,100',
-			'tickets.code' => 'required_with:tickets.discount',
+			'tickets.*.amount' => 'integer|between:0,100',
+			'tickets.*.price' => 'integer|between:0,1000',
+			'tickets.*.discount' => 'integer|between:0,100',
+			'tickets.*.code' => 'required_with:tickets.*.discount',
 		];
 	}
 

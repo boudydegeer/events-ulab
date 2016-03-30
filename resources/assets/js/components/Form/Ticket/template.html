@@ -1,0 +1,21 @@
+<div class="form-group row">
+	<div class="col-sm-3">
+		<label for="tickets[{{*id}}][amount]" class="control-label">Amount</label>
+		<input type="number" name="tickets[{{*id}}][amount]" class="form-control" v-model="amount">
+	</div>
+
+	<div class="col-sm-3">
+		<label for="tickets[{{*id}}][price]" class="control-label">Price</label>
+		<input type="number" name="tickets[{{*id}}][price]" class="form-control" v-model="price">
+	</div>
+
+	<div class="col-sm-3">
+		<label for="tickets[{{*id}}][discount]" class="control-label">Discount</label>
+		<input type="number" name="tickets[{{*id}}][discount]" class="form-control" v-model="discount">
+	</div>
+
+	<div class="col-sm-3">
+		<label for="tickets[{{*id}}][code]" class="control-label">Code</label>
+		<input type="text" name="tickets[{{*id}}][code]" class="form-control" v-model="code">
+	</div>
+</div>

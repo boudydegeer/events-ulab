@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/{slug}', 'EventsController@show');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

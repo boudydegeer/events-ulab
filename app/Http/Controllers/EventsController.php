@@ -30,8 +30,9 @@ class EventsController extends Controller
 	 *
 	 * @param $event
 	 */
-	public function show(Event $event){
-		dd($event);
+	public function show(Event $event)
+	{
+		return view("events.show", compact('event'));
 	}
 
 	/**

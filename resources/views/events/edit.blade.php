@@ -37,25 +37,14 @@
 							<legend>Tickets</legend>
 
 							@foreach($event->tickets as $ticket)
-								<div class="form-group">
-									{{ Form::label('tickets[$ticket->id][amount]', 'Amount', ['class' => 'control-label']) }}
-									{{ Form::number('tickets[$ticket->id][amount]', $event->count()?:null , array_merge(['class' => 'form-control'], [])) }}
-								</div>
-
-								<div class="form-group">
-									{{ Form::label('tickets[$ticket->id][price]', 'Price (in €)', ['class' => 'control-label']) }}
-									{{ Form::number('tickets[$ticket->id][price]', $event->count()?:null , array_merge(['class' => 'form-control'], [])) }}
-								</div>
-
-								<div class="form-group">
-									{{ Form::label('tickets[$ticket->id][discount]', 'Discount (in %)', ['class' => 'control-label']) }}
-									{{ Form::number('tickets[$ticket->id][discount]', $event->count()?:null , array_merge(['class' => 'form-control'], [])) }}
-								</div>
-
-								<div class="form-group">
-									{{ Form::label('tickets[$ticket->id][code]', 'Code', ['class' => 'control-label']) }}
-									{{ Form::text('tickets[$ticket->id][code]', $event->count()?:null , array_merge(['class' => 'form-control'], [])) }}
-								</div>
+								<ticket
+									:id="{{ $ticket->id }}"
+									:price="{{ $ticket->price }}"
+									:amount="{{ $ticket->amount }}"
+									:discount="{{ $ticket->discount }}"
+									code="{{ $ticket->code }}"
+								>
+								</ticket>
 							@endforeach
 						</fieldset>
 

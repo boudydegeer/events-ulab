@@ -1,0 +1,23 @@
+@extends('layouts.app')
+
+@section('title', $event->title)
+
+@section('navbar')
+	@parent
+@endsection
+
+@section('content')
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-heading">{{ $event->title }}</div>
+
+					<div class="panel-body">
+						{{ var_dump($event) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+@endsection
