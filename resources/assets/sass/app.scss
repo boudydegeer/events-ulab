@@ -1,2 +1,24 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+ @import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+ body {
+	 font-family: 'Lato';
+	 background-size: cover;
+	 background-origin: border-box;
+	 background: url("/images/ulab_background.jpg") no-repeat fixed center top;
+ }
+
+ .fa-btn {
+	 margin-right: 6px;
+ }
+ 
+ 
+.navbar {
+	min-height : 70px;
+
+	.navbar-brand {
+		padding: 10px;
+		img {
+			width: 100px;
+		}
+	}
+}
