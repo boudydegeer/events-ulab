@@ -58,6 +58,10 @@ class TicketsPaymentsController extends Controller
 					"code"      => $request->get('coupon')
 				])
 			);
+
+			// Reduce the quantity of available tickets
+			$ticket->decrement('available');
+			$ticket->save();
 		}
 		
 		// Send Email
