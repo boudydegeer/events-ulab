@@ -11,8 +11,11 @@
 |
 */
 
+use App\Event\Event;
+
 Route::get('/', function () {
-	return view('welcome');
+	$events = Event::all();
+	return view('welcome', compact('events'));
 });
 
 Route::get('/{slug}', [
