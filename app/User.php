@@ -4,12 +4,18 @@ namespace App;
 
 use App\Event\Event;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
 
 /**
- * @property mixed id
+ * @property integer id
+ * @property string name
+ * @property string email
+ * @property string password
  */
 class User extends Authenticatable
 {
+	use Billable;
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -37,5 +43,15 @@ class User extends Authenticatable
 	public function events()
 	{
 		return $this->hasMany(Event::class);
+	}
+
+	/**
+	 * Get the Stripe supported currency used by the entity.
+	 *
+	 * @return string
+	 */
+	public function preferredCurrency()
+	{
+		return 'eur';
 	}
 }

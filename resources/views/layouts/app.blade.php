@@ -18,6 +18,12 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	      rel="stylesheet">
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript">
+		// This identifies your website in the createToken call below
+		Stripe.setPublishableKey('{{ env('STRIPE_PUBLIC') }}');
+	</script>
 </head>
 <body id="app-layout">
 

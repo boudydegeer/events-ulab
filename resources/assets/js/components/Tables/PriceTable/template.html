@@ -1,0 +1,46 @@
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<th colspan="4">Concepto</th>
+		<th>Cantidad</th>
+		<th>Precio</th>
+	</tr>
+	</thead>
+	<tfoot>
+	<tr>
+		<th colspan="6"></th>
+	</tr>
+	<tr>
+		<th colspan="3"></th>
+		<th>Subtotal</th>
+		<th></th>
+		<th>{{ ticket.price | price | currency '€' }}</th>
+	</tr>
+	<tr v-if="coupon.code">
+		<th colspan="3"></th>
+		<th>Descuento <span class="label label-primary" v-text="coupon.description"></span></th>
+		<th>{{ coupon.discount }}%</th>
+		<th>{{ ticket.price | discount coupon.discount | price | currency '€'}}</th>
+	</tr>
+	<tr>
+		<th colspan="3"></th>
+		<th>Iva</th>
+		<th>{{ taxes }}%</th>
+		<th>{{ ticket.price | vat | price | currency '€' }}</th>
+	</tr>
+	<tr>
+		<th colspan="3"></th>
+		<th>Total</th>
+		<th></th>
+		<th>{{ ticket.price | finalPrice coupon.discount | price | currency '€'}}</th>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="4">{{event.title}}</td>
+		<td>1</td>
+		<td>{{ ticket.price | price | currency '€'}}</td>
+	</tr>
+	</tbody>
+</table>

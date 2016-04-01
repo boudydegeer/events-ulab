@@ -12,13 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
-Route::get('/{slug}', 'EventsController@show');
+Route::get('/{slug}', [
+	'as'   => 'home',
+	'uses' => 'EventsController@show'
+]);
+
+Route::post('/{slug}/tickets/{tickets}/payment/', [
+	'as'   => 'events.tickets.payments',
+	'uses' => 'TicketsPaymentsController@store'
+]);
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
 Route::resource('events', 'EventsController');
+
+Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
+	Route::get('coupons/{coupons}', ['as' => 'api.coupons.show', 'uses' => 'CouponsController@show']);
+});
+

@@ -2,6 +2,9 @@
 
  body {
 	 font-family: 'Lato';
+	 background-size: cover;
+	 background-origin: border-box;
+	 background: url("/images/ulab_background.jpg") no-repeat fixed center top;
  }
 
  .fa-btn {

@@ -1,12 +1,19 @@
 /**
  * Main Plugins
  */
-var Vue = require('vue');
-
+var Vue = require('vue'),
+		VueResource = require('vue-resource');
 /**
  * Components
  */
-var FormTicket = require('./components/Form/Ticket/index.vue')
+var Form = {
+			Ticket : require('./components/Form/Ticket/index.vue'),
+			CreditCard : require('./components/Form/CreditCard/index.vue'),
+			DiscountCoupon : require('./components/Form/DiscountCoupon/index.vue')
+		},
+		Tables = {
+			PriceTables : require('./components/Tables/PriceTable/index.vue')
+		}
 
 /**
  * Vue Config
@@ -14,14 +21,33 @@ var FormTicket = require('./components/Form/Ticket/index.vue')
 Vue.config.debug = true;
 
 /**
+ * Vue Services
+ */
+Vue.use(VueResource);
+
+/**
  * Vue instance
  */
 new Vue({
 	el : 'body',
+	events : {
+		'stripe::valid' : function (valid) {
+			this.isValid = valid
+		},
+	},
 	data : {
-		message : "My message"
+		isValid : false,
+		coupon : {},
+	},
+	methods : {
+		applyDiscount : function (coupon) {
+			this.coupon = coupon
+		}
 	},
 	components : {
-		'ticket' : FormTicket
-	}
+		'ticket' : Form.Ticket,
+		'credit-card' : Form.CreditCard,
+		'discount-coupon' : Form.DiscountCoupon,
+		'price-table' : Tables.PriceTables
+	},
 });

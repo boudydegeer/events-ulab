@@ -1,0 +1,23 @@
+<div>
+	<div class="errors col-sm-12">
+		<div class="alert alert-danger" v-if="errors.length > 0">
+			<li>{{errors}}</li>
+		</div>
+	</div>
+	<div class="form-group">
+		<!--<label for="card-number">Tarjeta de credito</label>-->
+		<input class="form-control"
+					 name="coupon"
+					 type="text"
+					 id="coupon"
+					 placeholder="Si tienes un cupón introducelo aqui"
+					 v-model="code"
+					 @keyup="validate"
+		>
+		<p class="label"
+			 v-text="coupon.description"
+			 :class="{'label-primary' : valid, 'label-danger' : !valid}"
+		>
+		</p>
+	</div>
+</div>

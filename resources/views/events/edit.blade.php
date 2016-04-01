@@ -12,14 +12,7 @@
 							<p>Here you can edit your event!</p>
 						</div>
 
-						@if(count($errors) > 0)
-							<div class="alert alert-danger">
-								@foreach($errors->all() as $error)
-									<li>{{$error}}</li>
-								@endforeach
-							</div>
-						@endif
-
+						@include('common.forms.errors')
 
 						{!! Form::open(['route' => ['events.update', $event->id], 'method' => 'put']) !!}
 

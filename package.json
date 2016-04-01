@@ -7,6 +7,8 @@
     "bootstrap-sass": "^3.0.0",
     "laravel-elixir": "^4.0.0",
     "laravel-elixir-vueify": "^1.0.3",
-    "vue": "^1.0.20"
+    "lodash": "^4.7.0",
+    "vue": "^1.0.20",
+    "vue-resource": "^0.7.0"
   }
 }
