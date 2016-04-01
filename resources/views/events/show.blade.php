@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-	<div class="container">
+	<div class="container" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
@@ -22,10 +22,7 @@
 									</div>
 								</div>
 							</div>
-
-						@else
-
-
+					  @elseif( $event->ticket()->available > 0 )
 							<div class="row">
 								<div class="col-sm-8 col-sm-offset-2">
 									@include('common.forms.errors')
@@ -99,7 +96,17 @@
 								</div>
 							</fieldset>
 							{!! Form::close() !!}
+						@else
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+									<div class="alert alert-danger">
+										Lamentablemente ya estan todos los puestos reservados, pero puedes ponerte en contacto con nosotros en
+										<a href="mailto:info@ulab.es">info@ulab.es</a>.
+									</div>
+								</div>
+							</div>
 						@endif
+
 					</div>
 				</div>
 			</div>
